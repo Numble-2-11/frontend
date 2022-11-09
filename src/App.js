@@ -1,12 +1,12 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Start from "./pages/Start";
-import Signup from "./pages/Signup";
-import Login from "./pages/Login";
-import Home from "./pages/Home";
-import Interest from "./pages/Interest";
+import StartPage from "./pages/StartPage";
+import SignupPage from "./pages/SignupPage";
+import LoginPage from "./pages/LoginPage";
+import HomePage from "./pages/HomePage";
+import InterestPage from "./pages/InterestPage";
 import Mypage from "./pages/Mypage";
-import Profile from "./pages/Profile";
+import ProfilePage from "./pages/ProfilePage";
 import { RecoilRoot } from "recoil";
 import { GlobalStyle } from "./components/styled-component/GlobalStyled";
 
@@ -14,23 +14,21 @@ function App() {
   return (
     <>
       <GlobalStyle />
-      <RecoilRoot>
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Start />} />
-            <Route path="/signup" element={<Signup />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/home" element={<Home />} />
-            <Route path="/interest" element={<Interest />} />
-            <Route path="/mypage" element={<Mypage />}>
-              <Route path=":id" element={<Mypage />} />
-            </Route>
-            <Route path="/profile" element={<Profile />}>
-              <Route path=":id" element={<Profile />} />
-            </Route>
-          </Routes>
-        </BrowserRouter>
-      </RecoilRoot>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<StartPage />} />
+          <Route path="/signup" element={<SignupPage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/home" element={<HomePage />} />
+          <Route path="/interest" element={<InterestPage />} />
+          <Route path="/mypage" element={<Mypage />}>
+            <Route path=":id" element={<Mypage />} />
+          </Route>
+          <Route path="/profile" element={<ProfilePage />}>
+            <Route path=":id" element={<ProfilePage />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }
