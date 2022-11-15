@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Button from "./../components/styled-component/Button";
 import Input from "./../components/styled-component/Input";
 import axios from "axios";
@@ -10,6 +10,7 @@ export default function Login() {
   const [password, setPassword] = useState("");
   const [possible, setPossible] = useState(false); // 버튼 활성화
   const [login, setLogin] = useState(false); // 로그인 성공 여부
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     if (e.target.type === "email") {
@@ -42,13 +43,13 @@ export default function Login() {
           }
           // 로그인 성공일 경우 메인으로 이동
           if (login) {
-            document.location.href = "/Community";
+            navigate("/Community");
           }
         })
         .catch((err) => {
           console.log(err);
           setLogin(false);
-          document.location.href = "/Community"; // 임시적으로 로그인 시 메인으로 이동
+          navigate("/Community"); // 임시적으로 로그인 시 메인으로 이동
         });
     }
   };
