@@ -3,10 +3,10 @@ import Button from "../components/styled-component/Button.jsx";
 import { SignupDes } from "../components/styled-component/SignupDes";
 import { Link } from "react-router-dom";
 
-export default function CompletePage() {
+export default function Complete() {
   return (
     <>
-      <SignupDes>
+      <SignupDes margin={"5rem 0"}>
         안녕하세요 콩나물님 <br /> 와글와글 빌리지에 오신걸 <br /> 환영합니다.
       </SignupDes>
       <Link to="/home">

@@ -10,7 +10,7 @@ import { GlobalStyle } from "./components/styled-component/GlobalStyled";
 import SignupPage from "./pages/SignupPage.jsx";
 import Signup from "./components/Signup.jsx";
 import Address from "./components/Address";
-import CompletePage from "./pages/CompletePage";
+import Complete from "./pages/Complete";
 import MainPage from "./pages/MainPage";
 
 function App() {
@@ -25,7 +25,7 @@ function App() {
             <Route path="signup" element={<Signup />} />
             <Route path="address" element={<Address />} />
           </Route>
-          <Route path="completed" element={<CompletePage />} />
+          <Route path="/complete" element={<Complete />} />
           <Route path="/home" element={<HomePage />} />
           <Route path="/interest" element={<InterestPage />} />
           <Route path="/mypage" element={<Mypage />}>

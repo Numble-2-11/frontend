@@ -28,12 +28,12 @@ export default function Address() {
           console.log(res.data);
           if (res.data === "success") {
             alert("주소가 등록되었습니다.");
-            navigate("/main");
+            navigate("/complete");
           }
         })
         .catch((err) => {
           console.log(err);
-          navigate("/main"); // 임시로 메인으로 가게 함
+          navigate("/complete"); // 임시로 메인으로 가게 함
         });
     }
   };
@@ -49,7 +49,7 @@ export default function Address() {
   return (
     <>
       <SignupDes>주소를 입력해주세요</SignupDes>
-      <Postcode onSelected={selectAddress} autoClose={false} />
+      <Postcode onSelected={selectAddress} />
       <div style={{ fontSize: "1.5rem", margin: "1.5rem 0" }}>{address}</div>
       <Button onClick={handleSubmit} children={"완료"} possible={possible} />
     </>
