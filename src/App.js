@@ -8,7 +8,6 @@ import Mypage from "./pages/Mypage";
 import ProfilePage from "./pages/ProfilePage";
 import { GlobalStyle } from "./components/styled-component/GlobalStyled";
 import SignupPage from "./pages/SignupPage.jsx";
-import Email from "./components/Email";
 import Signup from "./components/Signup.jsx";
 import Address from "./components/Address";
 import CompletePage from "./pages/CompletePage";
@@ -24,7 +23,6 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<SignupPage />}>
             <Route path="signup" element={<Signup />} />
-            <Route path="email" element={<Email />} />
             <Route path="address" element={<Address />} />
           </Route>
           <Route path="completed" element={<CompletePage />} />

@@ -8,7 +8,7 @@ export default function StartPage() {
     <>
       <div style={{ margin: "11rem 0" }}>
         <Logo width={210} height={210} style={{ margin: "2rem 0" }} />
-        <div style={{ "font-size": "1.5rem" }}>WAGLE WAGLE VILLAGE</div>
+        <div style={{ fontSize: "1.5rem" }}>WAGLE WAGLE VILLAGE</div>
       </div>
       <div>
         <Link to="/signup/signup">
