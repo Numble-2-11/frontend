@@ -36,8 +36,8 @@ export default function Signup() {
       return alert("이름을 입력해주세요.");
     } else if (!birthday) {
       return alert("생년월일을 입력해주세요.");
-    } else if (birthday.length !== 6) {
-      return alert("생년월일을 6자리로 입력해주세요.");
+    } else if (birthday.length !== 8) {
+      return alert("생년월일을 8자리로 입력해주세요.");
     } else if (!email) {
       return alert("이메일을 입력해주세요.");
     } else if (!password) {
@@ -57,7 +57,7 @@ export default function Signup() {
         })
         .then((res) => {
           console.log(res);
-          if (res.data.success) {
+          if (res.data === "success") {
             setSignup(true);
             alert("회원가입이 완료되었습니다.");
             navigate("/signup/address");
@@ -94,19 +94,20 @@ export default function Signup() {
         name="birthday"
         onChange={handleChange}
         value={birthday}
+        placeholder="예) 19990101"
       />
       <SignupTitle>이메일 주소</SignupTitle>
-      <Input type="text" name="email" onChange={handleChange} value={email} />
+      <Input type="email" name="email" onChange={handleChange} value={email} />
       <SignupTitle>비밀번호 입력</SignupTitle>
       <Input
-        type="text"
+        type="password"
         name="password"
         onChange={handleChange}
         value={password}
       />
       <SignupTitle>비밀번호 확인</SignupTitle>
       <Input
-        type="text"
+        type="password"
         name="passwordconfirm"
         onChange={handleChange}
         value={passwordconfirm}
