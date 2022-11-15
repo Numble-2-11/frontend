@@ -6,13 +6,14 @@ import { useNavigate } from "react-router-dom";
 const Head = styled.div`
   display: flex;
   align-items: center;
+  margin-bottom: ${(props) => (props.marginBottom ? props.marginBottom : "0")};
 `;
 
-export default function Header({ children }) {
+export default function Header({ children, marginBottom }) {
   const navigate = useNavigate();
 
   return (
-    <Head>
+    <Head marginBottom={marginBottom}>
       <IoIosArrowBack
         size="2.4rem"
         onClick={() => navigate(-1)}
