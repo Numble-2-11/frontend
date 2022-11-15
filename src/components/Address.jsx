@@ -1,18 +1,40 @@
 import React, { useState, useEffect } from "react";
-import Input from "./styled-component/Input.jsx";
-import styled from "styled-components";
 import Button from "./styled-component/Button.jsx";
-import { SignupTitle } from "./styled-component/SignupTitle.jsx";
 import { SignupDes } from "./styled-component/SignupDes.jsx";
-import { Link } from "react-router-dom";
+import Postcode from "@actbase/react-daum-postcode";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 export default function Address() {
   const [address, setAddress] = useState("");
   const [possible, setPossible] = useState(false);
+  const navigate = useNavigate();
 
-  const handleChange = (e) => {
-    if (e.target.name === "address") {
-      setAddress(e.target.value);
+  const selectAddress = (data) => {
+    setAddress(data.address);
+    console.log(data.address);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!address) {
+      return alert("주소를 입력해주세요.");
+    } else {
+      axios
+        .post("", {
+          address: address,
+        })
+        .then((res) => {
+          console.log(res.data);
+          if (res.data === "success") {
+            alert("주소가 등록되었습니다.");
+            navigate("/complete");
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+          navigate("/complete"); // 임시로 메인으로 가게 함
+        });
     }
   };
 
@@ -27,16 +49,9 @@ export default function Address() {
   return (
     <>
       <SignupDes>주소를 입력해주세요</SignupDes>
-      <SignupTitle>주소</SignupTitle>
-      <Input
-        type="text"
-        name="address"
-        onChange={handleChange}
-        value={address}
-      />
-      <Link to="/completed">
-        <Button children={"완료"} possible={possible} />
-      </Link>
+      <Postcode onSelected={selectAddress} />
+      <div style={{ fontSize: "1.5rem", margin: "1.5rem 0" }}>{address}</div>
+      <Button onClick={handleSubmit} children={"완료"} possible={possible} />
     </>
   );
 }

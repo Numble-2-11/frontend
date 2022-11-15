@@ -8,11 +8,10 @@ import Mypage from "./pages/Mypage";
 import ProfilePage from "./pages/ProfilePage";
 import { GlobalStyle } from "./components/styled-component/GlobalStyled";
 import SignupPage from "./pages/SignupPage.jsx";
-import Email from "./components/Email";
 import Signup from "./components/Signup.jsx";
 import Address from "./components/Address";
 import CompletePage from "./pages/CompletePage";
-import Community from "./pages/Community";
+import MainPage from "./pages/MainPage";
 
 function App() {
   return (
@@ -24,11 +23,10 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<SignupPage />}>
             <Route path="signup" element={<Signup />} />
-            <Route path="email" element={<Email />} />
             <Route path="address" element={<Address />} />
           </Route>
-          <Route path="completed" element={<CompletePage />} />
-          <Route path="/home" element={<HomePage />} />
+          <Route path="/complete" element={<CompletePage />} />
+          <Route path="/main" element={<MainPage />} />
           <Route path="/interest" element={<InterestPage />} />
           <Route path="/mypage" element={<Mypage />}>
             <Route path=":id" element={<Mypage />} />
@@ -36,8 +34,6 @@ function App() {
           <Route path="/profile" element={<ProfilePage />}>
             <Route path=":id" element={<ProfilePage />} />
           </Route>
-
-          <Route path="/Community" element={<Community />} />
         </Routes>
       </BrowserRouter>
     </>

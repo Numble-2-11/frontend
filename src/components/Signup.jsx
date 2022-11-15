@@ -1,29 +1,32 @@
 import React, { useState, useEffect } from "react";
 import Input from "../components/styled-component/Input.jsx";
-import { Link } from "react-router-dom";
 import Button from "./styled-component/Button.jsx";
 import { SignupTitle } from "./styled-component/SignupTitle.jsx";
 import { SignupDes } from "./styled-component/SignupDes.jsx";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export default function Signup() {
   const [name, setName] = useState("");
-  const [commu, setCommu] = useState("");
-  const [residentNum, setResidentNum] = useState("");
-  const [phoneNum, setPhoneNum] = useState("");
-  const [confirmPhone, setConfirmPhone] = useState(false);
+  const [birthday, setBirthday] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [passwordconfirm, setPasswordconfirm] = useState("");
   const [possible, setPossible] = useState(false);
+  const [signup, setSignup] = useState(false); // 회원가입 성공 여부
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     if (e.target.name === "name") {
       setName(e.target.value);
-    } else if (e.target.name === "commu") {
-      setCommu(e.target.value);
-    } else if (e.target.name === "residentNum") {
-      setResidentNum(e.target.value);
-    } else if (e.target.name === "phoneNum") {
-      setPhoneNum(e.target.value);
-    } else if (e.target.name === "confirmPhone") {
-      setConfirmPhone(e.target.value);
+    } else if (e.target.name === "birthday") {
+      setBirthday(e.target.value);
+    } else if (e.target.name === "email") {
+      setEmail(e.target.value);
+    } else if (e.target.name === "password") {
+      setPassword(e.target.value);
+    } else if (e.target.name === "passwordconfirm") {
+      setPasswordconfirm(e.target.value);
     }
   };
 
@@ -31,39 +34,49 @@ export default function Signup() {
     e.preventDefault();
     if (!name) {
       return alert("이름을 입력해주세요.");
-    } else if (!commu) {
-      return alert("통신사를 입력해주세요.");
-    } else if (!residentNum) {
-      return alert("주민번호를 입력해주세요.");
-    } else if (!phoneNum) {
-      return alert("휴대폰 번호를 입력해주세요.");
-    } else if (!confirmPhone) {
-      return alert("휴대폰 인증을 해주세요.");
+    } else if (!birthday) {
+      return alert("생년월일을 입력해주세요.");
+    } else if (birthday.length !== 8) {
+      return alert("생년월일을 8자리로 입력해주세요.");
+    } else if (!email) {
+      return alert("이메일을 입력해주세요.");
+    } else if (!password) {
+      return alert("비밀번호를 입력해주세요.");
+    } else if (!passwordconfirm) {
+      return alert("비밀번호 확인을 입력해주세요.");
+    } else if (password !== passwordconfirm) {
+      return alert("비밀번호가 일치하지 않습니다.");
     } else {
-      // axios
-      //   .post("http://localhost:4000/signup", {
-      //     name,
-      //     commu,
-      //     residentNum,
-      //     phoneNum,
-      //     confirmPhone,
-      //   })
-      //   .then((res) => {
-      //     console.log(res);
-      //   })
-      //   .catch((err) => {
-      //     console.log(err);
-      //   });
+      axios
+        .post("", {
+          name: name,
+          birthday: birthday,
+          email: email,
+          password: password,
+          passwordconfirm: passwordconfirm,
+        })
+        .then((res) => {
+          console.log(res);
+          if (res.data === "success") {
+            setSignup(true);
+            alert("회원가입이 완료되었습니다.");
+            navigate("/signup/address");
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+          navigate("/signup/address"); // 임시적으로 주소 입력 페이지로 이동
+        });
     }
   };
 
   useEffect(() => {
-    if (name && commu && residentNum && phoneNum && confirmPhone) {
+    if (name && birthday && email && password && passwordconfirm) {
       setPossible(true);
-    } else if (!name || !commu || !residentNum || !phoneNum || !confirmPhone) {
+    } else {
       setPossible(false);
     }
-  }, [name, commu, residentNum, phoneNum, confirmPhone]);
+  }, [name, birthday, email, password, passwordconfirm]);
 
   return (
     <>
@@ -75,37 +88,33 @@ export default function Signup() {
 
       <SignupTitle>이름</SignupTitle>
       <Input type="text" name="name" onChange={handleChange} value={name} />
-      <SignupTitle>통신사</SignupTitle>
-      <Input type="text" name="commu" onChange={handleChange} value={commu} />
-      <SignupTitle>주민등록번호</SignupTitle>
+      <SignupTitle>생년월일</SignupTitle>
       <Input
         type="text"
-        name="residentNum"
+        name="birthday"
         onChange={handleChange}
-        value={residentNum}
+        value={birthday}
+        placeholder="예) 19990101"
       />
-      <SignupTitle>휴대폰번호</SignupTitle>
+      <SignupTitle>이메일 주소</SignupTitle>
+      <Input type="email" name="email" onChange={handleChange} value={email} />
+      <SignupTitle>비밀번호 입력</SignupTitle>
       <Input
-        type="text"
-        name="phoneNum"
+        type="password"
+        name="password"
         onChange={handleChange}
-        value={phoneNum}
+        value={password}
       />
-      <SignupTitle>휴대폰번호 인증</SignupTitle>
+      <SignupTitle>비밀번호 확인</SignupTitle>
       <Input
-        type="text"
-        name="confirmPhone"
+        type="password"
+        name="passwordconfirm"
         onChange={handleChange}
-        value={confirmPhone}
+        value={passwordconfirm}
       />
-
-      <Link to="/signup/email">
-        <Button
-          children={"계속하기"}
-          possible={possible}
-          // onClick={handleClick}
-        />
-      </Link>
+      <Button onClick={handleClick} possible={possible}>
+        계속하기
+      </Button>
     </>
   );
 }

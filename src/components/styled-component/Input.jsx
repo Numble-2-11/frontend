@@ -10,23 +10,31 @@ const StyledInput = styled.input`
   color: #bfbfbf;
   background: #181924;
   border-bottom: ${(props) =>
-    props.flag ? "2px solid white" : "2px solid #c7c7c7"};
-  opacity: ${(props) => (props.flag ? "1" : "0.5")};
-
-  &:focus {
-    border-bottom: 2px solid white;
-    opacitiy: 1;
+    props.value ? "2px solid white" : "2px solid #737373"};
+  &:focus {  border-bottom: 2px solid white;  }
+  }
+  :-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 1000px #181924 inset;
+    -webkit-text-fill-color: white;
   }
 `;
 
-export default function Input({ type, name, onChange, placeholder, value }) {
+export default function Input({
+  type,
+  name,
+  onChange,
+  placeholder,
+  value,
+  style,
+}) {
   return (
     <StyledInput
       type={type}
       name={name}
       onChange={onChange}
       placeholder={placeholder}
-      flag={value}
+      value={value}
+      style={style}
     />
   );
 }
