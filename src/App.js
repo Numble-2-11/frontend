@@ -12,6 +12,7 @@ import Email from "./components/Email";
 import Signup from "./components/Signup.jsx";
 import Address from "./components/Address";
 import CompletePage from "./pages/CompletePage";
+import Community from "./pages/Community";
 
 function App() {
   return (
@@ -35,6 +36,8 @@ function App() {
           <Route path="/profile" element={<ProfilePage />}>
             <Route path=":id" element={<ProfilePage />} />
           </Route>
+
+          <Route path="/Community" element={<Community />} />
         </Routes>
       </BrowserRouter>
     </>
