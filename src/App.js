@@ -11,7 +11,7 @@ import SignupPage from "./pages/SignupPage.jsx";
 import Signup from "./components/Signup.jsx";
 import Address from "./components/Address";
 import CompletePage from "./pages/CompletePage";
-import Community from "./pages/Community";
+import MainPage from "./pages/MainPage";
 
 function App() {
   return (
@@ -35,7 +35,7 @@ function App() {
             <Route path=":id" element={<ProfilePage />} />
           </Route>
 
-          <Route path="/Community" element={<Community />} />
+          <Route path="/main" element={<MainPage />} />
         </Routes>
       </BrowserRouter>
     </>

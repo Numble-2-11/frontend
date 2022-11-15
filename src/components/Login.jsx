@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Button from "./../components/styled-component/Button";
 import Input from "./../components/styled-component/Input";
 import axios from "axios";
@@ -43,13 +43,13 @@ export default function Login() {
           }
           // 로그인 성공일 경우 메인으로 이동
           if (login) {
-            navigate("/Community");
+            navigate("/main");
           }
         })
         .catch((err) => {
           console.log(err);
           setLogin(false);
-          navigate("/Community"); // 임시적으로 로그인 시 메인으로 이동
+          navigate("/main"); // 임시적으로 로그인 시 메인으로 이동
         });
     }
   };
