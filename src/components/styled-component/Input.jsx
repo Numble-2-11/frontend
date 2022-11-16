@@ -1,5 +1,5 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
 const StyledInput = styled.input`
   width: 100%;
@@ -10,7 +10,7 @@ const StyledInput = styled.input`
   color: #bfbfbf;
   background: #181924;
   border-bottom: ${(props) =>
-    props.value ? "2px solid white" : "2px solid #737373"};
+		props.value ? '2px solid white' : '2px solid #737373'};
   &:focus {  border-bottom: 2px solid white;  }
   }
   :-webkit-autofill {
@@ -20,21 +20,25 @@ const StyledInput = styled.input`
 `;
 
 export default function Input({
-  type,
-  name,
-  onChange,
-  placeholder,
-  value,
-  style,
+	id,
+	type,
+	name,
+	onChange,
+	onClick,
+	placeholder,
+	value,
+	style,
 }) {
-  return (
-    <StyledInput
-      type={type}
-      name={name}
-      onChange={onChange}
-      placeholder={placeholder}
-      value={value}
-      style={style}
-    />
-  );
+	return (
+		<StyledInput
+			id={id}
+			type={type}
+			name={name}
+			onChange={onChange}
+			onClick={onClick}
+			placeholder={placeholder}
+			value={value}
+			style={style}
+		/>
+	);
 }
