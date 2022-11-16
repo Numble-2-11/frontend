@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
   * {
@@ -18,6 +18,9 @@ export const GlobalStyle = createGlobalStyle`
       margin: 0 auto;
       border: 1px solid lightgray;
     }
+    #root {
+      padding: 2.4rem;
+    }
   }
 
   @media (max-width: 500px) {
@@ -26,12 +29,14 @@ export const GlobalStyle = createGlobalStyle`
       margin: 0 auto;
       height: 100%;
     }
+    #root {
+      padding: 1.2rem;
+    }
   }
 
-  #root {
-    text-align: center;
-    padding: 2.4rem;
-    height: 100vh;
-    background: #181924;
-  }
+#root {
+  text-align: center;
+  height: 100vh;
+  background: #181924;
+}
 `;
