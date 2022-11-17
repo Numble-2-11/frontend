@@ -72,7 +72,10 @@ export default function CompletePage() {
 			</SignupDes>
 			<Img src={profile} style={{ transform: 'translateX(1.5rem)' }} />
 			<label for="file-input">
-				<img src={profileBtn} style={{ transform: 'translateX(-2rem)' }} />
+				<img
+					src={profileBtn}
+					style={{ transform: 'translateX(-2rem)', cursor: 'pointer' }}
+				/>
 			</label>
 
 			<Input
