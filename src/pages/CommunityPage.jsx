@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link, Outlet } from "react-router-dom";
 import Header from "../components/Header";
 import List from "../components/community/List.jsx";
@@ -18,7 +18,6 @@ export default function CommunityPage() {
   ];
 
   const handleClick = (e) => {
-    console.log(e.target.outerText);
     if (e.target.outerText === "새로 생겼어요") {
       setSelected(1);
     } else if (e.target.outerText === "행사/축제") {
