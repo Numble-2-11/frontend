@@ -1,17 +1,23 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { GlobalStyle } from "./components/styled-component/GlobalStyled";
 import StartPage from "./pages/StartPage";
 import LoginPage from "./pages/LoginPage";
 import InterestPage from "./pages/InterestPage";
 import Mypage from "./pages/Mypage";
 import ProfilePage from "./pages/ProfilePage";
-import { GlobalStyle } from "./components/styled-component/GlobalStyled";
 import SignupPage from "./pages/SignupPage.jsx";
 import Signup from "./components/Signup.jsx";
 import Address from "./components/Address";
 import CompletePage from "./pages/CompletePage";
 import MainPage from "./pages/MainPage";
 import CommunityPage from "./pages/CommunityPage";
+import NewBoard from "./components/community/NewBoard";
+import FestivalBoard from "./components/community/FestivalBoard";
+import EventBoard from "./components/community/EventBoard";
+import MeetingBoard from "./components/community/MeetingBoard";
+import LoseBoard from "./components/community/LoseBoard";
+import FreeBoard from "./components/community/FreeBoard";
 
 function App() {
   return (
@@ -27,7 +33,14 @@ function App() {
           </Route>
           <Route path="/complete" element={<CompletePage />} />
           <Route path="/main" element={<MainPage />} />
-          <Route path="/community" element={<CommunityPage />} />
+          <Route path="/community" element={<CommunityPage />}>
+            <Route path="newBoard" element={<NewBoard />} />
+            <Route path="festivalBoard" element={<FestivalBoard />} />
+            <Route path="eventBoard" element={<EventBoard />} />
+            <Route path="meetingBoard" element={<MeetingBoard />} />
+            <Route path="loseBoard" element={<LoseBoard />} />
+            <Route path="freeBoard" element={<FreeBoard />} />
+          </Route>
           <Route path="/interest" element={<InterestPage />} />
           <Route path="/mypage" element={<Mypage />}>
             <Route path=":id" element={<Mypage />} />
