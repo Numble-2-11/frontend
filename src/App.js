@@ -18,6 +18,7 @@ import EventBoard from "./components/community/EventBoard";
 import MeetingBoard from "./components/community/MeetingBoard";
 import LoseBoard from "./components/community/LoseBoard";
 import FreeBoard from "./components/community/FreeBoard";
+import PostWriting from "./pages/PostWriting";
 
 function App() {
   return (
