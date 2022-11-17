@@ -6,10 +6,13 @@ import { GiHamburgerMenu } from "react-icons/gi";
 export default function Community() {
   return (
     <>
-      <TextLogo width={98} height={21} style={{ float: "left" }} />
-      <GiHamburgerMenu size="24" style={{ float: "right" }} />
-      <br /> <br />
-      <Title children={"안녕하세요 콩나물님"} style={{ float: "left" }} />
+      <div style={{ display: "flex", justifyContent: "space-between" }}>
+        <TextLogo style={{ width: "9.8rem", height: "2.1rem" }} />
+        <GiHamburgerMenu size="24" />
+      </div>
+      <div style={{ display: "flex", justifyContent: "flex-start" }}>
+        <Title children={"안녕하세요 콩나물님 :)"} />
+      </div>
     </>
   );
 }
