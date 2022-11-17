@@ -2,7 +2,6 @@ import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import StartPage from "./pages/StartPage";
 import LoginPage from "./pages/LoginPage";
-import HomePage from "./pages/HomePage";
 import InterestPage from "./pages/InterestPage";
 import Mypage from "./pages/Mypage";
 import ProfilePage from "./pages/ProfilePage";
@@ -12,6 +11,7 @@ import Signup from "./components/Signup.jsx";
 import Address from "./components/Address";
 import CompletePage from "./pages/CompletePage";
 import MainPage from "./pages/MainPage";
+import CommunityPage from "./pages/CommunityPage";
 
 function App() {
   return (
@@ -27,6 +27,7 @@ function App() {
           </Route>
           <Route path="/complete" element={<CompletePage />} />
           <Route path="/main" element={<MainPage />} />
+          <Route path="/community" element={<CommunityPage />} />
           <Route path="/interest" element={<InterestPage />} />
           <Route path="/mypage" element={<Mypage />}>
             <Route path=":id" element={<Mypage />} />
