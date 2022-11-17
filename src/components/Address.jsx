@@ -12,8 +12,8 @@ export default function Address() {
 	const [openPostcode, setOpenPostcode] = useState(false);
 	const navigate = useNavigate();
 	const selectAddress = (data) => {
-		setAddress(data.address);
-		console.log(data.address);
+		setAddress(data.sido + ' ' + data.sigungu + ' ' + data.bname);
+		console.log(data);
 		setOpenPostcode(false);
 	};
 	const clickButton = () => {
