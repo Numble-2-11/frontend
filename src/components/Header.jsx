@@ -17,7 +17,7 @@ export default function Header({ children, marginBottom }) {
       <IoIosArrowBack
         size="2.4rem"
         onClick={() => navigate(-1)}
-        style={{ cursor: "pointer" }}
+        style={{ cursor: "pointer", marginRight: "1rem" }}
       />
       <Title children={children} />
     </Head>
