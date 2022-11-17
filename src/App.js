@@ -48,6 +48,7 @@ function App() {
           <Route path="/profile" element={<ProfilePage />}>
             <Route path=":id" element={<ProfilePage />} />
           </Route>
+          <Route path="/postwriting" element={<PostWriting />} />
         </Routes>
       </BrowserRouter>
     </>
