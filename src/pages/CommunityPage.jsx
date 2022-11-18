@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, Outlet } from "react-router-dom";
 import Header from "../components/Header";
-import List from "../components/community/List.jsx";
+import List from "../components/List.jsx";
 import { ScrollMenu } from "react-horizontal-scrolling-menu";
 import styled from "styled-components";
 
@@ -37,7 +37,7 @@ export default function CommunityPage() {
     <>
       <Header children={"커뮤니티"} />
       <Container>
-        <ScrollMenu>
+        <ScrollMenu wheel={true}>
           {list.map((item) => (
             <Link to={item.url} key={item.id} onClick={handleClick}>
               <List isSelected={selected == item.id}>{item.text}</List>

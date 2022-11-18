@@ -19,6 +19,9 @@ import MeetingBoard from "./components/community/MeetingBoard";
 import LoseBoard from "./components/community/LoseBoard";
 import FreeBoard from "./components/community/FreeBoard";
 import PostWriting from "./pages/PostWriting";
+import Profile from "./components/mypage/Profile";
+import Friends from "./components/mypage/Friends";
+import Writing from "./components/mypage/Writing";
 
 function App() {
   return (
@@ -44,7 +47,9 @@ function App() {
           </Route>
           <Route path="/interest" element={<InterestPage />} />
           <Route path="/mypage" element={<Mypage />}>
-            <Route path=":id" element={<Mypage />} />
+            <Route path="profile" element={<Profile />} />
+            <Route path="friendList" element={<Friends />} />
+            <Route path="myWriting" element={<Writing />} />
           </Route>
           <Route path="/profile" element={<ProfilePage />}>
             <Route path=":id" element={<ProfilePage />} />
