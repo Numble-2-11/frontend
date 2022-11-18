@@ -5,11 +5,15 @@ import List from "../components/List.jsx";
 import styled from "styled-components";
 import { Outlet } from "react-router-dom";
 import OutSpan from "./../components/mypage/OutSpan";
-import ProfileImg, { Img } from "../components/styled-component/ProfileImg";
+import ProfileImg from "../components/styled-component/ProfileImg";
+import { useRecoilState, useRecoilValue } from "recoil";
+import { userProfile, userName } from "./../states/UserState";
 
 export default function Mypage() {
   const { id } = useParams();
   const [selected, setSelected] = useState(1);
+  const [profile, setProfile] = useRecoilState(userProfile);
+  const name = useRecoilValue(userName);
 
   const list = [
     { text: "프로필", url: "profile", id: "1" },
@@ -30,7 +34,8 @@ export default function Mypage() {
   return (
     <>
       <Header children={"마이페이지"} />
-      <ProfileImg />
+      <ProfileImg src={profile} style={{ width: "6.4rem", height: "6.4rem" }} />
+      <div style={{ margin: "1.5rem 0" }}>{name}님</div>
       <Container>
         {list.map((item) => (
           <Link

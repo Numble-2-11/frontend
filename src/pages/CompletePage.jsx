@@ -6,11 +6,13 @@ import profileBtn from "../images/profileBtn.svg";
 import ProfileImg from "./../components/styled-component/ProfileImg";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { useRecoilState } from "recoil";
+import { userProfile } from "../states/UserState.jsx";
 
 export default function CompletePage() {
   const DefaultImg =
     "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png";
-  const [profile, setProfile] = useState(DefaultImg);
+  const [profile, setProfile] = useRecoilState(userProfile);
   const [nickname, setNickname] = useState("");
   const navigate = useNavigate();
 
