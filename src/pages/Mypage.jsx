@@ -7,13 +7,13 @@ import { Outlet } from "react-router-dom";
 import OutSpan from "./../components/mypage/OutSpan";
 import ProfileImg from "../components/styled-component/ProfileImg";
 import { useRecoilState, useRecoilValue } from "recoil";
-import { userProfile, userName } from "./../states/UserState";
+import { NameState, ProfileState } from "./../states/UserState";
 
 export default function Mypage() {
   const { id } = useParams();
   const [selected, setSelected] = useState(1);
-  const [profile, setProfile] = useRecoilState(userProfile);
-  const name = useRecoilValue(userName);
+  const [profile, setProfile] = useRecoilState(ProfileState);
+  const name = useRecoilValue(NameState);
 
   const list = [
     { text: "프로필", url: "profile", id: "1" },
