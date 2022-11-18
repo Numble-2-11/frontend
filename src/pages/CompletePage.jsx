@@ -1,18 +1,18 @@
 import React, { useState } from "react";
 import Button from "../components/styled-component/Button.jsx";
-import { SignupDes } from "../components/styled-component/SignupDes";
+import { SignupDes } from "../components/signup/SignupDes";
 import Input from "../components/styled-component/Input.jsx";
 import profileBtn from "../images/profileBtn.svg";
 import ProfileImg from "./../components/styled-component/ProfileImg";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useRecoilState } from "recoil";
-import { userProfile } from "../states/UserState.jsx";
+import { ProfileState } from "../states/UserState.jsx";
 
 export default function CompletePage() {
   const DefaultImg =
     "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png";
-  const [profile, setProfile] = useRecoilState(userProfile);
+  const [profile, setProfile] = useRecoilState(ProfileState);
   const [nickname, setNickname] = useState("");
   const navigate = useNavigate();
 

@@ -1,45 +1,42 @@
 import { atom } from "recoil";
 
-// page가 변경되더라도 로그인 정보 유지
-//const { persistAtom } = recoilPersist();
-
-export const userName = atom({
-  key: "name",
+export const NameState = atom({
+  key: "NameState",
   default: "OOO",
 });
 
-export const userBirthDay = atom({
-  key: "birthday",
+export const BirthDayState = atom({
+  key: "BirthDayState",
   default: "",
 });
 
-export const userEmail = atom({
-  key: "email",
+export const EmailState = atom({
+  key: "EmailState",
   default: "",
 });
 
-export const userEmailConfirm = atom({
-  key: "emailconfirm",
+export const EmailConfirmState = atom({
+  key: "EmailConfirmState",
   default: "",
 });
 
-export const userPassword = atom({
-  key: "password",
+export const PasswordState = atom({
+  key: "PasswordState",
   default: "",
 });
 
-export const userPasswordConfirm = atom({
-  key: "passwordconfirm",
+export const PasswordConfirmState = atom({
+  key: "PasswordConfirmState",
   default: "",
 });
 
-export const userNickname = atom({
-  key: "nickname",
+export const NicknameState = atom({
+  key: "NicknameState",
   default: "",
 });
 
-export const userProfile = atom({
-  key: "profile",
+export const ProfileState = atom({
+  key: "ProfileState",
   default:
     "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png",
 });

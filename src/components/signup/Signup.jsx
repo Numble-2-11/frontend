@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import Input from "../components/styled-component/Input.jsx";
-import Button from "./styled-component/Button.jsx";
-import { SignupTitle } from "./styled-component/SignupTitle.jsx";
-import { SignupDes } from "./styled-component/SignupDes.jsx";
+import Input from "../../components/styled-component/Input.jsx";
+import Button from "./../styled-component/Button.jsx";
+import { SignupTitle } from "./SignupTitle.jsx";
+import { SignupDes } from "./SignupDes.jsx";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
@@ -13,7 +13,6 @@ export default function Signup() {
   const [password, setPassword] = useState("");
   const [passwordconfirm, setPasswordconfirm] = useState("");
   const [possible, setPossible] = useState(false);
-  const [signup, setSignup] = useState(false); // 회원가입 성공 여부
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -56,15 +55,15 @@ export default function Signup() {
           passwordconfirm: passwordconfirm,
         })
         .then((res) => {
-          console.log(res);
+          // console.log(res);
           if (res.data === "success") {
-            setSignup(true);
             alert("회원가입이 완료되었습니다.");
             navigate("/signup/address");
           }
         })
         .catch((err) => {
-          console.log(err);
+          // console.log(err);
+          alert("회원가입이 완료되었습니다.");
           navigate("/signup/address"); // 임시적으로 주소 입력 페이지로 이동
         });
     }
