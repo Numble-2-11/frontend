@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import Button from "./../components/styled-component/Button";
-import Input from "./../components/styled-component/Input";
+import Button from "../styled-component/Button";
+import Input from "../styled-component/Input";
 import axios from "axios";
 import { useRecoilState, useSetRecoilState } from "recoil";
-import { LoginState } from "./../states/LoginState";
-import { EmailState, PasswordState } from "./../states/UserState";
+import { LoginState } from "../../states/LoginState";
+import { EmailState, PasswordState } from "../../states/UserState";
 
 export default function Login() {
   const [email, setEmail] = useState("");
