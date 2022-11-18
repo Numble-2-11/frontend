@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Button from "../components/styled-component/Button.jsx";
-import { SignupDes } from "../components/styled-component/SignupDes";
+import { SignupDes } from "../components/signup/SignupDes";
 import Input from "../components/styled-component/Input.jsx";
 import profileBtn from "../images/profileBtn.svg";
 import ProfileImg from "./../components/styled-component/ProfileImg";
