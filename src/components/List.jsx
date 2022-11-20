@@ -6,10 +6,10 @@ const StyledList = styled.li`
   list-style: none;
   font-size: 1.2rem;
   width: ${(props) => (props.width ? props.width : "8rem")};
-  font-weight: bold;
+  font-weight: ${(props) => (props.isSelected ? "bold" : "300")};
   border-bottom: ${(props) =>
     props.isSelected ? "0.2rem solid #2AD4AF" : "0.2rem solid #fff"};
-  opacity: ${(props) => (props.isSelected ? "1" : "0.5")};
+  opacity: ${(props) => (props.isSelected ? "1" : "0.3")};
   color: ${(props) => (props.isSelected ? "#2AD4AF" : "white")};
 `;
 
