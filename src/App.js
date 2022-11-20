@@ -20,7 +20,7 @@ import LoseBoard from "./components/community/LoseBoard";
 import FreeBoard from "./components/community/FreeBoard";
 import PostWriting from "./pages/PostWriting";
 import Profile from "./components/mypage/Profile";
-import Friends from "./components/mypage/Friends";
+import FriendList from "./components/mypage/FriendList";
 import Writing from "./components/mypage/Writing";
 
 function App() {
@@ -48,7 +48,7 @@ function App() {
           <Route path="/interest" element={<InterestPage />} />
           <Route path="/mypage" element={<Mypage />}>
             <Route path="profile" element={<Profile />} />
-            <Route path="friendList" element={<Friends />} />
+            <Route path="friendList" element={<FriendList />} />
             <Route path="myWriting" element={<Writing />} />
           </Route>
           <Route path="/profile" element={<ProfilePage />}>
