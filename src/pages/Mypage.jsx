@@ -4,7 +4,6 @@ import Header from "../components/Header.jsx";
 import List from "../components/List.jsx";
 import styled from "styled-components";
 import { Outlet } from "react-router-dom";
-import OutSpan from "./../components/mypage/OutSpan";
 import ProfileImg from "../components/styled-component/ProfileImg";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { NameState, ProfileState } from "./../states/UserState";
@@ -51,10 +50,6 @@ export default function Mypage() {
         ))}
       </Container>
       <Outlet />
-      <div style={{ display: "flex" }}>
-        <OutSpan style={{ marginRight: "1rem" }}>탈퇴하기</OutSpan>
-        <OutSpan>로그아웃</OutSpan>
-      </div>
     </>
   );
 }
