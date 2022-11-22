@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import Header from "../components/Header.jsx";
+import Header2 from "../components/Header2.jsx";
 import List from "../components/List.jsx";
 import styled from "styled-components";
 import { Outlet } from "react-router-dom";
@@ -32,7 +32,7 @@ export default function Mypage() {
 
   return (
     <>
-      <Header children={"마이페이지"} />
+      <Header2 children={"마이페이지"} />
       <ProfileImg src={profile} style={{ width: "6.4rem", height: "6.4rem" }} />
       <div style={{ margin: "1.5rem 0" }}>{name}님</div>
       <Container>

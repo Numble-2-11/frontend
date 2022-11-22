@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import { IoIosArrowBack } from "react-icons/io";
 import { useNavigate, Link } from "react-router-dom";
 import xIcon from "../images/xIcon.svg";
+import arrow_left from "../images/arrow_left.svg";
 import Title from "./styled-component/Title";
 
 const Head = styled.div`
@@ -15,16 +15,31 @@ export default function Header({ children, marginBottom }) {
 
   return (
     <Head marginBottom={marginBottom}>
-      <div style={{ display: "flex", margin: "2rem 0", width: "100%" }}>
-        <IoIosArrowBack
-          size="2.4rem"
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          margin: "2rem 0",
+          width: "100%",
+        }}
+      >
+        <img
+          src={arrow_left}
           onClick={() => navigate(-1)}
-          style={{ cursor: "pointer", marginRight: "1rem" }}
+          style={{
+            width: "2.2rem",
+            height: "1.8rem",
+            cursor: "pointer",
+            marginRight: "1rem",
+          }}
         />
         <Title children={children} />
       </div>
       <Link to="/">
-        <img src={xIcon} style={{ cursor: "pointer" }} />
+        <img
+          src={xIcon}
+          style={{ cursor: "pointer", width: "1.6rem", height: "1.6rem" }}
+        />
       </Link>
     </Head>
   );
