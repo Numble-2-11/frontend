@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Login from "./../components/Login";
+import Login from "./../components/login/Login";
 import Header from "../components/Header";
 import loginLogo from "../images/loginLogo.svg";
 

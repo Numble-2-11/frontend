@@ -1,16 +1,22 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import Button from "./../components/styled-component/Button";
-import Input from "./../components/styled-component/Input";
+import Button from "../styled-component/Button";
+import Input from "../styled-component/Input";
 import axios from "axios";
+import { useRecoilState, useSetRecoilState } from "recoil";
+import { LoginState } from "../../states/LoginState";
+import { EmailState, PasswordState } from "../../states/UserState";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [possible, setPossible] = useState(false); // 버튼 활성화
-  const [login, setLogin] = useState(false); // 로그인 성공 여부
   const navigate = useNavigate();
+
+  const [isLoggedIn, setIsLoggedIn] = useRecoilState(LoginState); // 로그인 성공 여부
+  const setEmailState = useSetRecoilState(EmailState);
+  const setPasswordState = useSetRecoilState(PasswordState);
 
   const handleChange = (e) => {
     if (e.target.type === "email") {
@@ -30,25 +36,27 @@ export default function Login() {
     } else {
       // ID, PW 모두 입력한 경우
       axios
-        .post("", {
+        .post(`url`, {
           email: email,
           password: password,
         })
         .then((res) => {
-          console.log(res.data);
+          // console.log(res.data);
           if (res.data === "success") {
-            setLogin(true);
+            setIsLoggedIn(true);
+            setEmailState(email);
+            setPasswordState(password);
           } else {
             alert("아이디 또는 비밀번호가 일치하지 않습니다.");
           }
           // 로그인 성공일 경우 메인으로 이동
-          if (login) {
+          if (isLoggedIn) {
             navigate("/main");
           }
         })
         .catch((err) => {
           console.log(err);
-          setLogin(false);
+          setIsLoggedIn(false);
           navigate("/main"); // 임시적으로 로그인 시 메인으로 이동
         });
     }
