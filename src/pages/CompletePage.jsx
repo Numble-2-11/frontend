@@ -70,7 +70,7 @@ export default function CompletePage() {
 			>
 				프로필을 꾸며보세요
 			</SignupDes>
-			<Img src={profile} style={{ transform: 'translateX(1.5rem)' }} />
+			<Img src={profile} transform={'translateX(1.5rem)'} />
 			<label for="file-input">
 				<img
 					src={profileBtn}
