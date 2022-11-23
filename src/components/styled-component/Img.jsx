@@ -6,8 +6,9 @@ const StyledImg = styled.img`
 	width: 17rem;
 	border-radius: 50%;
 	object-fit: cover;
+	transform: ${(props) => (props.transform ? props.transform : '')};
 `;
 
-export default function Img({ src, style }) {
-	return <StyledImg src={src} style={style} />;
+export default function Img({ src, transform }) {
+	return <StyledImg src={src} transform={transform} />;
 }
