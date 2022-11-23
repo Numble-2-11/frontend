@@ -9,6 +9,6 @@ const StyledImg = styled.img`
 	transform: ${(props) => (props.transform ? props.transform : '')};
 `;
 
-export default function Img({ src, transform }) {
+export default function ProfileImg({ src, transform }) {
 	return <StyledImg src={src} transform={transform} />;
 }

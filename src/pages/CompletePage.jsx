@@ -3,7 +3,7 @@ import Button from '../components/styled-component/Button.jsx';
 import { SignupDes } from '../components/styled-component/SignupDes';
 import Input from '../components/styled-component/Input.jsx';
 import profileBtn from '../images/profileBtn.svg';
-import Img from './../components/styled-component/Img';
+import ProfileImg from '../components/styled-component/ProfileImg';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
@@ -70,7 +70,7 @@ export default function CompletePage() {
 			>
 				프로필을 꾸며보세요
 			</SignupDes>
-			<Img src={profile} transform={'translateX(1.5rem)'} />
+			<ProfileImg src={profile} transform={'translateX(1.5rem)'} />
 			<label for="file-input">
 				<img
 					src={profileBtn}
