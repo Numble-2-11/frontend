@@ -9,11 +9,13 @@ const StyledDiv = styled.div`
 	border-radius: 0.5rem;
 	justify-content: space-between;
 	align-items: center;
+	box-shadow: 1px 1px 5px black;
 	a {
-		width: 7rem;
+		width: 30%;
 		display: flex;
 		margin: 0.7rem 0;
 		flex-direction: column;
+		cursor: pointer;
 		img {
 			margin: auto;
 			width: 3.5rem;

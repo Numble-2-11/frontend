@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
   * {
@@ -30,7 +30,8 @@ export const GlobalStyle = createGlobalStyle`
 
 #root {
   text-align: center;
-  height: 100vh;
+  min-height: 100vh;
+  height: 100%;
   background: #181924;
   padding: 2.4rem;
 }

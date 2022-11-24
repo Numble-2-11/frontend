@@ -5,7 +5,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Pagination, Autoplay } from 'swiper/core';
 import 'swiper/css';
 import 'swiper/css/pagination';
-import MainSwiper from '../components/MainSwiper';
+import MainSwiper from '../components/main/MainSwiper';
 import newIcon from '../images/new.svg';
 import festival from '../images/festival.svg';
 import consult from '../images/consult.svg';
@@ -13,8 +13,11 @@ import smallGroup from '../images/small_group.svg';
 import lost from '../images/lost.svg';
 import free from '../images/free.svg';
 import { findByLabelText } from '@testing-library/react';
-import MainDiv from '../components/MainDiv';
+import waggleHome from '../images/waggleHome.svg';
+import myHome from '../images/myHome.svg';
+import MainDiv from '../components/main/MainDiv';
 import { Link } from 'react-router-dom';
+import HomeSwitch from '../components/styled-component/HomeSwitch';
 
 SwiperCore.use([Pagination, Autoplay]);
 
@@ -71,6 +74,17 @@ export default function Community() {
 					<span>자유게시판</span>
 				</Link>
 			</MainDiv>
+			<HomeSwitch direction={'left'}>
+				<div style={{ width: '60%', backgroundColor: '#2AD4AF' }}>
+					<img src={waggleHome} />
+					<span style={{ color: 'black', fontWeight: '550' }}>와글 홈</span>
+				</div>
+				<div style={{ width: '40%' }}>
+					<Link to={'/mypage'}>
+						<img src={myHome} />
+					</Link>
+				</div>
+			</HomeSwitch>
 		</>
 	);
 }
