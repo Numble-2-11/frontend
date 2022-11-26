@@ -77,6 +77,7 @@ export default function Login() {
         placeholder="이메일"
         onChange={handleChange}
         value={email}
+        style={{ marginBottom: "1.5rem" }}
       />
       <Input
         type="password"
