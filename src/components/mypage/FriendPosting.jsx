@@ -20,25 +20,28 @@ export default function () {
   const displayCreateAt = (createdAt) => {
     const date = new Date(createdAt);
     const now = Date.now();
-    if (parseInt(date - now) > -60000) {
-      return <Moment format="방금 전">{date}</Moment>;
+    const milliSeconds = now - date;
+
+    const seconds = milliSeconds / 1000;
+    const minutes = seconds / 60;
+    const hours = minutes / 60;
+    const days = hours / 24;
+    const months = days / 30;
+    const years = months / 12;
+
+    if (seconds < 60) {
+      return "방금 전";
+    } else if (minutes < 60) {
+      return `${Math.floor(minutes)}분 전`;
+    } else if (hours < 24) {
+      return `${Math.floor(hours)}시간 전`;
+    } else if (days < 30) {
+      return `${Math.floor(days)}일 전`;
+    } else if (months < 12) {
+      return `${Math.floor(months)}달 전`;
+    } else {
+      return `${Math.floor(years)}년 전`;
     }
-    if (parseInt(date - now) > -3600000) {
-      return <Moment format="분 전">{date}</Moment>;
-    }
-    if (parseInt(date - now) > -86400000) {
-      return <Moment format="시간 전">{date}</Moment>;
-    }
-    if (parseInt(date - now) > -604800000) {
-      return <Moment format="일 전">{date}</Moment>;
-    }
-    if (parseInt(date - now) > -2592000000) {
-      return <Moment format="주 전">{date}</Moment>;
-    }
-    if (parseInt(date - now) > -31536000000) {
-      return <Moment format="달 전">{date}</Moment>;
-    }
-    return <Moment format="년 전">{date}</Moment>;
   };
 
   const Container = styled.div`
