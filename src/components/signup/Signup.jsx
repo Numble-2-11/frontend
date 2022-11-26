@@ -6,11 +6,13 @@ import { SignupDes } from "./SignupDes.jsx";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Message from "./Message";
+import EmailConfirm from "./EmailConfirm.jsx";
 
 export default function Signup() {
   const [name, setName] = useState("");
   const [birthday, setBirthday] = useState("");
   const [email, setEmail] = useState("");
+  const [emailconfirm, setEmailconfirm] = useState("");
   const [password, setPassword] = useState("");
   const [passwordconfirm, setPasswordconfirm] = useState("");
   const [possible, setPossible] = useState(false);
@@ -20,6 +22,7 @@ export default function Signup() {
   const [isName, setIsName] = useState(false);
   const [isBirthday, setIsBirthday] = useState(false);
   const [isEmail, setIsEmail] = useState(false);
+  const [isEmailconfirm, setIsEmailconfirm] = useState(false);
   const [isPassword, setIsPassword] = useState(false);
   const [isPasswordconfirm, setIsPasswordconfirm] = useState(false);
 
@@ -27,6 +30,7 @@ export default function Signup() {
   const [nameError, setNameError] = useState("");
   const [birthdayError, setBirthdayError] = useState("");
   const [emailError, setEmailError] = useState("");
+  const [emailconfirmError, setEmailconfirmError] = useState("");
   const [passwordError, setPasswordError] = useState("");
   const [passwordconfirmError, setPasswordconfirmError] = useState("");
 
@@ -87,6 +91,18 @@ export default function Signup() {
     }
   };
 
+  const handleEmailconfirm = (e) => {
+    const emailconfirm = e.target.value;
+    setEmailconfirm(emailconfirm);
+    // 이메일 인증 구현 후 수정
+    if (emailconfirm == 0) {
+      setIsEmailconfirm(true);
+    } else {
+      setEmailconfirmError("이메일 인증 번호가 일치하지 않습니다.");
+      setIsEmailconfirm(false);
+    }
+  };
+
   const handlePassword = (e) => {
     const password = e.target.value;
     const passwordRegex =
@@ -114,12 +130,19 @@ export default function Signup() {
   };
 
   useEffect(() => {
-    if (isName && isBirthday && isEmail && isPassword && isPasswordconfirm) {
+    if (
+      isName &&
+      isBirthday &&
+      isEmail &&
+      isEmailconfirm &&
+      isPassword &&
+      isPasswordconfirm
+    ) {
       setPossible(true);
     } else {
       setPossible(false);
     }
-  }, [name, birthday, email, password, passwordconfirm]);
+  }, [name, birthday, email, emailconfirm, password, passwordconfirm]);
 
   return (
     <>
@@ -145,8 +168,26 @@ export default function Signup() {
           <Message>{birthdayError}</Message>
         )}
         <SignupTitle>이메일 주소</SignupTitle>
-        <Input type="email" name="email" onChange={handleEmail} value={email} />
+        <div style={{ position: "relative" }}>
+          <Input
+            type="email"
+            name="email"
+            onChange={handleEmail}
+            value={email}
+          />
+          <EmailConfirm />
+        </div>
         {email.length > 0 && isEmail ? null : <Message>{emailError}</Message>}
+        <SignupTitle>이메일 인증</SignupTitle>
+        <Input
+          type="email"
+          name="emailconfirm"
+          onChange={handleEmailconfirm}
+          value={emailconfirm}
+        />
+        {emailconfirm.length > 0 && isEmailconfirm ? null : (
+          <Message>{emailconfirmError}</Message>
+        )}
         <SignupTitle>비밀번호 입력</SignupTitle>
         <Input
           type="password"
@@ -175,6 +216,7 @@ export default function Signup() {
               isName &&
               isBirthday &&
               isEmail &&
+              isEmailconfirm &&
               isPassword &&
               isPasswordconfirm
             )
