@@ -9,7 +9,9 @@ export default function LoginPage() {
     <>
       <Header children={"이메일 로그인"} marginBottom={"5rem"} />
       <Login />
-      <div>
+      <div
+        style={{ fontSize: "1.15rem", fontWeight: "300", marginTop: "0.5rem" }}
+      >
         계정이 없으신가요? <Link to="/signup/signup">회원가입</Link>
       </div>
       <div style={{ display: "flex", justifyContent: "flex-end" }}>
