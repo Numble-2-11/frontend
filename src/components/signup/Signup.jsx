@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect } from "react";
 import Input from "../../components/styled-component/Input.jsx";
 import Button from "./../styled-component/Button.jsx";
 import { SignupTitle } from "./SignupTitle.jsx";
@@ -129,52 +129,60 @@ export default function Signup() {
         이웃과 이야기를 나눠보세요!
       </SignupDes>
 
-      <SignupTitle>이름</SignupTitle>
-      <Input type="text" name="name" onChange={handleName} value={name} />
-      {name.length > 0 && isName ? null : <Message>{nameError}</Message>}
-      <SignupTitle>생년월일</SignupTitle>
-      <Input
-        type="text"
-        name="birthday"
-        onChange={handleBirthDay}
-        value={birthday}
-        placeholder="예) 19990101"
-      />
-      {birthday.length > 0 && isBirthday ? null : (
-        <Message>{birthdayError}</Message>
-      )}
-      <SignupTitle>이메일 주소</SignupTitle>
-      <Input type="email" name="email" onChange={handleEmail} value={email} />
-      {email.length > 0 && isEmail ? null : <Message>{emailError}</Message>}
-      <SignupTitle>비밀번호 입력</SignupTitle>
-      <Input
-        type="password"
-        name="password"
-        onChange={handlePassword}
-        value={password}
-      />
-      {password.length > 0 && isPassword ? null : (
-        <Message>{passwordError}</Message>
-      )}
-      <SignupTitle>비밀번호 확인</SignupTitle>
-      <Input
-        type="password"
-        name="passwordconfirm"
-        onChange={handlePasswordconfirm}
-        value={passwordconfirm}
-      />
-      {passwordconfirm.length > 0 && isPasswordconfirm ? null : (
-        <Message>{passwordconfirmError}</Message>
-      )}
-      <Button
-        onClick={handleSubmit}
-        possible={possible}
-        disabled={
-          !(isName && isBirthday && isEmail && isPassword && isPasswordconfirm)
-        }
-      >
-        계속하기
-      </Button>
+      <form autoComplete="off">
+        <SignupTitle>이름</SignupTitle>
+        <Input type="text" name="name" onChange={handleName} value={name} />
+        {name.length > 0 && isName ? null : <Message>{nameError}</Message>}
+        <SignupTitle>생년월일</SignupTitle>
+        <Input
+          type="text"
+          name="birthday"
+          onChange={handleBirthDay}
+          value={birthday}
+          placeholder="예) 19990101"
+        />
+        {birthday.length > 0 && isBirthday ? null : (
+          <Message>{birthdayError}</Message>
+        )}
+        <SignupTitle>이메일 주소</SignupTitle>
+        <Input type="email" name="email" onChange={handleEmail} value={email} />
+        {email.length > 0 && isEmail ? null : <Message>{emailError}</Message>}
+        <SignupTitle>비밀번호 입력</SignupTitle>
+        <Input
+          type="password"
+          name="password"
+          onChange={handlePassword}
+          value={password}
+        />
+        {password.length > 0 && isPassword ? null : (
+          <Message>{passwordError}</Message>
+        )}
+        <SignupTitle>비밀번호 확인</SignupTitle>
+        <Input
+          type="password"
+          name="passwordconfirm"
+          onChange={handlePasswordconfirm}
+          value={passwordconfirm}
+        />
+        {passwordconfirm.length > 0 && isPasswordconfirm ? null : (
+          <Message>{passwordconfirmError}</Message>
+        )}
+        <Button
+          onClick={handleSubmit}
+          possible={possible}
+          disabled={
+            !(
+              isName &&
+              isBirthday &&
+              isEmail &&
+              isPassword &&
+              isPasswordconfirm
+            )
+          }
+        >
+          계속하기
+        </Button>
+      </form>
     </>
   );
 }
