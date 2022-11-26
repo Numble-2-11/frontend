@@ -4,11 +4,15 @@ import { useNavigate } from "react-router-dom";
 import Button from "../styled-component/Button";
 import Input from "../styled-component/Input";
 import axios from "axios";
+import { useSetRecoilState } from "recoil";
+import { LoginState } from "../../states/LoginState";
+import { refreshToken } from "./utils";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [possible, setPossible] = useState(false);
+  const setIsLogin = useSetRecoilState(LoginState);
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -33,8 +37,8 @@ export default function Login() {
         password: password,
       };
       axios
-        .post("url", JSON.stringify(data), {
-          header: {
+        .post("/auth/login", JSON.stringify(data), {
+          headers: {
             "Content-Type": "application/json",
           },
         })
@@ -43,15 +47,24 @@ export default function Login() {
             console.log("res.data.accessToken : " + res.data);
             axios.defaults.headers.common["Authorization"] =
               "Bearer " + res.data;
-            // 로그인 성공일 경우 메인으로 이동
+            setIsLogin(true);
             navigate("/main");
+
+            // 60초 뒤에 refresh token이 실행되도록 수정.
+            // 이후 refresh token에서 자동으로 setTimeout이 발생해 주기적으로 access Token이 갱신됨
+            setTimeout(() => {
+              refreshToken();
+            }, 60 * 1000);
           } else {
             alert("아이디 또는 비밀번호가 일치하지 않습니다.");
           }
         })
         .catch((err) => {
           console.log(err);
-          navigate("/main"); // 임시적으로 로그인 시 메인으로 이동
+          navigate("/main"); // 임시로 로그인 시 메인으로 이동
+        })
+        .finally(() => {
+          console.log("login request end");
         });
     }
   };

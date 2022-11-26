@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { GlobalStyle } from "./components/styled-component/GlobalStyled";
 import StartPage from "./pages/StartPage";
@@ -21,8 +21,26 @@ import Profile from "./components/mypage/Profile";
 import FriendList from "./components/mypage/FriendList";
 import Writing from "./components/mypage/Writing";
 import FriendProfilePage from "./pages/FriendProfilePage";
+import { useSetRecoilState } from "recoil";
+import { LoginState } from "./states/LoginState.jsx";
+import axios from "axios";
+import { refreshToken } from "./components/login/utils";
 
 function App() {
+  const setIsLogin = useSetRecoilState(LoginState);
+
+  useEffect(() => {
+    try {
+      refreshToken(loginCallback);
+    } catch (e) {
+      console.log("app silent requset fail : " + e);
+    }
+  }, []);
+
+  function loginCallback(login) {
+    setIsLogin(login);
+  }
+
   return (
     <>
       <GlobalStyle />
