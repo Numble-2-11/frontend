@@ -3,9 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { GlobalStyle } from "./components/styled-component/GlobalStyled";
 import StartPage from "./pages/StartPage";
 import LoginPage from "./pages/LoginPage";
-import InterestPage from "./pages/InterestPage";
 import Mypage from "./pages/Mypage";
-import ProfilePage from "./pages/ProfilePage";
 import SignupPage from "./pages/SignupPage.jsx";
 import Signup from "./components/signup/Signup.jsx";
 import Address from "./components/signup/Address";
@@ -22,6 +20,7 @@ import PostWriting from "./pages/PostWriting";
 import Profile from "./components/mypage/Profile";
 import FriendList from "./components/mypage/FriendList";
 import Writing from "./components/mypage/Writing";
+import FriendProfilePage from "./pages/FriendProfilePage";
 
 function App() {
   return (
@@ -45,16 +44,13 @@ function App() {
             <Route path="loseBoard" element={<LoseBoard />} />
             <Route path="freeBoard" element={<FreeBoard />} />
           </Route>
-          <Route path="/interest" element={<InterestPage />} />
+          <Route path="/postwriting" element={<PostWriting />} />
           <Route path="/mypage" element={<Mypage />}>
             <Route path="profile" element={<Profile />} />
             <Route path="friendList" element={<FriendList />} />
             <Route path="myWriting" element={<Writing />} />
           </Route>
-          <Route path="/profile" element={<ProfilePage />}>
-            <Route path=":id" element={<ProfilePage />} />
-          </Route>
-          <Route path="/postwriting" element={<PostWriting />} />
+          <Route path="/friendProfile" element={<FriendProfilePage />} />
         </Routes>
       </BrowserRouter>
     </>
