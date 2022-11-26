@@ -12,9 +12,14 @@ const StyledButton = styled.button`
   color: ${(props) => (props.possible ? "#181924" : "#bfbfbf")};
 `;
 
-export default function Button({ onClick, children, possible }) {
+export default function Button({ onClick, children, possible, disabled }) {
   return (
-    <StyledButton onClick={onClick} type="submit" possible={possible}>
+    <StyledButton
+      onClick={onClick}
+      type="submit"
+      possible={possible}
+      disabled={disabled}
+    >
       {children}
     </StyledButton>
   );

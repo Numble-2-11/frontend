@@ -15,7 +15,7 @@ export default function StartPage() {
           <Button children={"시작하기"} possible={true} />
         </Link>
       </div>
-      <div>
+      <div style={{ fontSize: "1.15rem", fontWeight: "300" }}>
         이미 계정이 있나요? <Link to="/login">로그인</Link>
       </div>
     </>
