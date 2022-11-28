@@ -25,7 +25,6 @@ import { LoginState } from "./states/LoginState.jsx";
 import { refreshToken } from "./components/login/utils";
 import FollowerList from "./components/mypage/FollowerList";
 import FollowingList from "./components/mypage/FollowingList";
-import HomePage from "./pages/HomePage";
 
 function App() {
   const setIsLogin = useSetRecoilState(LoginState);
