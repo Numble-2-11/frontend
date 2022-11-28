@@ -8,6 +8,7 @@ const StyledButton = styled.button`
   border: none;
   margin: 1rem 0;
   cursor: pointer;
+  font-weight: 800;
   background: ${(props) => (props.possible ? "#91f0c6" : "#272A33")};
   color: ${(props) => (props.possible ? "#181924" : "#bfbfbf")};
 `;

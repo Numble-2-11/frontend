@@ -12,7 +12,7 @@ export const GlobalStyle = createGlobalStyle`
 
   @media (min-width: 500px) {
     html {
-      font-size: 72%;
+      font-size: 70%;
       width: 450px;
       height: 100%;
       margin: 0 auto;
@@ -22,7 +22,7 @@ export const GlobalStyle = createGlobalStyle`
 
   @media (max-width: 500px) {
     html {
-      font-size: 65%;
+      font-size: 62.5%;
       margin: 0 auto;
       height: 100%;
     }

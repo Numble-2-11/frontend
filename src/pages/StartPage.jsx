@@ -18,7 +18,7 @@ export default function StartPage() {
           <Button
             children={"시작하기"}
             possible={true}
-            style={{ fontSize: "1.3rem", fontWeight: 800 }}
+            style={{ fontSize: "1.3rem" }}
           />
         </Link>
       </div>
