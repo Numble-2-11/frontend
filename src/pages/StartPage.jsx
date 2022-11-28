@@ -14,7 +14,7 @@ export default function StartPage() {
         <div style={{ fontSize: "1.5rem" }}>WAGLE WAGLE VILLAGE</div>
       </div>
       <div>
-        <Link to="/signup/signup">
+        <Link to="/user/signup/signup">
           <Button
             children={"시작하기"}
             possible={true}
@@ -23,7 +23,7 @@ export default function StartPage() {
         </Link>
       </div>
       <div style={{ fontSize: "1.15rem", fontWeight: "300" }}>
-        이미 계정이 있나요? <Link to="/login">로그인</Link>
+        이미 계정이 있나요? <Link to="/user/login">로그인</Link>
       </div>
     </>
   );

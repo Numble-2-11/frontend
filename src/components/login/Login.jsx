@@ -33,17 +33,18 @@ export default function Login() {
     } else {
       // ID, PW 모두 입력한 경우
       const data = {
-        email: email,
+        username: email,
         password: password,
       };
       axios
-        .post("/auth/login", JSON.stringify(data), {
+        .post("/user/login", JSON.stringify(data), {
           headers: {
             "Content-Type": "application/json",
           },
         })
         .then((res) => {
-          if (res.data === "success") {
+          console.log(res);
+          if (res.success) {
             console.log("res.data.accessToken : " + res.data);
             axios.defaults.headers.common["Authorization"] =
               "Bearer " + res.data;
@@ -61,11 +62,11 @@ export default function Login() {
         })
         .catch((err) => {
           console.log(err);
-          navigate("/main"); // 임시로 로그인 시 메인으로 이동
-        })
-        .finally(() => {
-          console.log("login request end");
+          // navigate("/main"); // 임시로 로그인 시 메인으로 이동
         });
+      // .finally(() => {
+      //   console.log("login request end");
+      // });
     }
   };
 

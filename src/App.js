@@ -42,39 +42,40 @@ function App() {
 		setIsLogin(login);
 	}
 
-	return (
-		<>
-			<GlobalStyle />
-			<BrowserRouter>
-				<Routes>
-					<Route path="/" element={<StartPage />} />
-					<Route path="/login" element={<LoginPage />} />
-					<Route path="/signup" element={<SignupPage />}>
-						<Route path="signup" element={<Signup />} />
-						<Route path="address" element={<Address />} />
-					</Route>
-					<Route path="/complete" element={<CompletePage />} />
-					<Route path="/main" element={<MainPage />} />
-					<Route path="/community" element={<CommunityPage />}>
-						<Route path="newBoard" element={<NewBoard />} />
-						<Route path="festivalBoard" element={<FestivalBoard />} />
-						<Route path="eventBoard" element={<EventBoard />} />
-						<Route path="meetingBoard" element={<MeetingBoard />} />
-						<Route path="loseBoard" element={<LoseBoard />} />
-						<Route path="freeBoard" element={<FreeBoard />} />
-					</Route>
-					<Route path="/postwriting" element={<PostWriting />} />
-					<Route path="/mypage" element={<Mypage />}>
-						<Route path="profile" element={<Profile />} />
+
+  return (
+    <>
+      <GlobalStyle />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<StartPage />} />
+          <Route path="/user/login" element={<LoginPage />} />
+          <Route path="/user/signup" element={<SignupPage />}>
+            <Route path="signup" element={<Signup />} />
+            <Route path="address" element={<Address />} />
+          </Route>
+          <Route path="/complete" element={<CompletePage />} />
+          <Route path="/main" element={<MainPage />} />
+          <Route path="/community" element={<CommunityPage />}>
+            <Route path="newBoard" element={<NewBoard />} />
+            <Route path="festivalBoard" element={<FestivalBoard />} />
+            <Route path="eventBoard" element={<EventBoard />} />
+            <Route path="meetingBoard" element={<MeetingBoard />} />
+            <Route path="loseBoard" element={<LoseBoard />} />
+            <Route path="freeBoard" element={<FreeBoard />} />
+          </Route>
+          <Route path="/postwriting" element={<PostWriting />} />
+          <Route path="/mypage" element={<Mypage />}>
+            <Route path="profile" element={<Profile />} />
 						<Route path="followerList" element={<FollowerList />} />
 						<Route path="followingList" element={<FollowingList />} />
-						<Route path="myWriting" element={<Writing />} />
-					</Route>
-					<Route path="/friendProfile" element={<FriendProfilePage />} />
-				</Routes>
-			</BrowserRouter>
-		</>
-	);
+            <Route path="myWriting" element={<Writing />} />
+          </Route>
+          <Route path="/friendProfile" element={<FriendProfilePage />} />
+        </Routes>
+      </BrowserRouter>
+    </>
+  );
 }
 
 export default App;
