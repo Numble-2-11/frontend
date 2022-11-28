@@ -19,7 +19,7 @@ export default function Mypage() {
 
 	const list = [
 		{ text: '프로필', url: 'profile', id: '1' },
-		{ text: '친구 목록', url: 'friendList', id: '2' },
+		{ text: '친구 목록', url: 'followerList', id: '2' },
 		{ text: '내가 쓴 글', url: 'myWriting', id: '3' },
 	];
 
@@ -55,7 +55,7 @@ export default function Mypage() {
 			<Outlet />
 
 			<HomeSwitch direction={'right'}>
-				<div style={{ width: '40%', marginLeft: '1rem' }}>
+				<div style={{ width: '40%', paddingRight: '1.5rem' }}>
 					<Link to={'/main'}>
 						<img src={waggleHome} />
 					</Link>
@@ -76,5 +76,5 @@ export default function Mypage() {
 
 const Container = styled.div`
 	display: flex;
-	margin-bottom: 2.6rem;
+	margin-bottom: 1rem;
 `;

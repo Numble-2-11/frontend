@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Header from '../components/Header';
+import Header2 from '../components/Header2';
 import GrayButton from '../components/styled-component/GrayButton';
 import Input from '../components/styled-component/Input';
 import PostInput from '../components/styled-component/PostInput';
@@ -13,10 +13,10 @@ export default function PostWriting() {
 	}
 	return (
 		<>
-			<Header>
+			<Header2>
 				게시글 작성
 				<GrayButton children={'저장'} margin={'0 0 0 4rem'} />
-			</Header>
+			</Header2>
 			<PostInput type="text" name="title" placeholder="제목" isTitle={true} />
 			<TextArea
 				id="contents"
