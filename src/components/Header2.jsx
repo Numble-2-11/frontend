@@ -13,14 +13,20 @@ const Head = styled.div`
   flex: 1;
 `;
 
-export default function Header2({ children, search, marginBottom, store }) {
+export default function Header2({
+  children,
+  search,
+  marginBottom,
+  store,
+  url,
+}) {
   const navigate = useNavigate();
 
   return (
     <Head marginBottom={marginBottom}>
       <img
         src={arrow_left}
-        onClick={() => navigate(-1)}
+        onClick={() => navigate("/main")}
         style={{
           width: "2.2rem",
           marginRight: store ? "2.1rem" : "0",
