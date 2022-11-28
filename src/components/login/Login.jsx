@@ -62,11 +62,11 @@ export default function Login() {
         })
         .catch((err) => {
           console.log(err);
-          // navigate("/main"); // 임시로 로그인 시 메인으로 이동
+          navigate("/main"); // 임시로 로그인 시 메인으로 이동
+        })
+        .finally(() => {
+          console.log("login request end");
         });
-      // .finally(() => {
-      //   console.log("login request end");
-      // });
     }
   };
 
