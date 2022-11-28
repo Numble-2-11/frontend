@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
   * {
@@ -12,7 +12,7 @@ export const GlobalStyle = createGlobalStyle`
 
   @media (min-width: 500px) {
     html {
-      font-size: 70%;
+      font-size: 72%;
       width: 450px;
       height: 100%;
       margin: 0 auto;
@@ -22,7 +22,7 @@ export const GlobalStyle = createGlobalStyle`
 
   @media (max-width: 500px) {
     html {
-      font-size: 62.5%;
+      font-size: 65%;
       margin: 0 auto;
       height: 100%;
     }
