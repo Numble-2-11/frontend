@@ -29,7 +29,7 @@ export default function PostWriting() {
         isTitle={false}
       />
       <br></br>
-      <PostInput type="text" name="dong" placeholder="행정동" isTitle={false} />
+      <PostInput type="text" name="dong" placeholder="위치" isTitle={false} />
       <div style={{ margin: "4rem 0 0 0 ", textAlign: "left" }}>
         <GrayButton children={"새로생겼어요"} />
         <GrayButton children={"행사/축제"} />
