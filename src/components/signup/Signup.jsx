@@ -117,16 +117,18 @@ export default function Signup() {
 			setIsPassword(true);
 		}
 	};
-
-	const handlePasswordconfirm = (e) => {
-		const passwordconfirm = e.target.value;
-		setPasswordconfirm(passwordconfirm);
+	useEffect(() => {
 		if (password !== passwordconfirm) {
 			setPasswordconfirmError('비밀번호가 일치하지 않습니다.');
 			setIsPasswordconfirm(false);
 		} else {
 			setIsPasswordconfirm(true);
 		}
+	}, [password, passwordconfirm]);
+
+	const handlePasswordconfirm = (e) => {
+		const passwordconfirm = e.target.value;
+		setPasswordconfirm(passwordconfirm);
 	};
 
 	useEffect(() => {

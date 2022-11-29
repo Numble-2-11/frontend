@@ -1,6 +1,7 @@
-import React from "react";
-import Post from "./Post";
-import Location from "./Location";
+import React from 'react';
+import Post from './Post';
+import Location from './Location';
+import WritingButton from './WritingButton';
 
 export default function NewBoard() {
   return (
@@ -11,6 +12,12 @@ export default function NewBoard() {
       <Post />
       <Post />
       <Post />
+			<Post />
+			<Post />
+			<Post />
+			<Post />
+			<Post />
+			<WritingButton />
     </>
   );
 }

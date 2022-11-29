@@ -2,6 +2,8 @@ import React from "react";
 import Post from "./Post";
 import Location from "./Location";
 
+import WritingButton from './WritingButton';
+
 export default function EventBoard() {
   return (
     <>
@@ -11,6 +13,7 @@ export default function EventBoard() {
       <Post />
       <Post />
       <Post />
+			<WritingButton />
     </>
   );
 }

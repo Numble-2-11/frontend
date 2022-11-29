@@ -1,6 +1,7 @@
 import React from "react";
 import Post from "./Post";
 import Location from "./Location";
+import WritingButton from './WritingButton';
 
 export default function LoseBoard() {
   return (
@@ -11,6 +12,7 @@ export default function LoseBoard() {
       <Post />
       <Post />
       <Post />
+			<WritingButton />
     </>
   );
 }

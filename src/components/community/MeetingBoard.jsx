@@ -1,6 +1,7 @@
 import React from "react";
 import Location from "./Location";
 import Post from "./Post";
+import WritingButton from './WritingButton';
 
 export default function Meeting() {
   return (
@@ -11,6 +12,7 @@ export default function Meeting() {
       <Post />
       <Post />
       <Post />
+			<WritingButton />
     </>
   );
 }
