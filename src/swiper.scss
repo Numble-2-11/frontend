@@ -1,0 +1,25 @@
+.swiper {
+	width: 100vw;
+	max-width: 448px;
+	height: 28rem;
+	transform: translateX(-2.4rem);
+	position: relative;
+	overflow: hidden;
+	z-index: 1;
+	margin-bottom: 2rem;
+}
+
+.swiper-slide {
+	background-position: center;
+	background-size: cover;
+	padding: 5px;
+}
+
+.swiper-slide img {
+	border-radius: 0.6rem;
+	height: 100%;
+	width: 240px;
+	transform: translateX(calc((min(224px, 50vw) - 240px) / 2));
+	border: 1px solid #282933;
+	box-shadow: 1px 1px 5px black;
+}
