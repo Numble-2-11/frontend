@@ -1,11 +1,18 @@
-import React from 'react';
+import React from "react";
+import Post from "./Post";
+import Location from "./Location";
 import WritingButton from './WritingButton';
 
-export default function Lose() {
-	return (
-		<div>
-			Lose
+export default function LoseBoard() {
+  return (
+    <>
+      <Location />
+      <Post />
+      <Post />
+      <Post />
+      <Post />
+      <Post />
 			<WritingButton />
-		</div>
-	);
+    </>
+  );
 }
