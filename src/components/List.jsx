@@ -5,7 +5,7 @@ const StyledList = styled.li`
 	padding: 0.5rem 0 1rem 0;
 	list-style: none;
 	font-size: 1.2rem;
-	width: ${(props) => (props.width ? props.width : '8rem')};
+	width: 8rem;
 	font-weight: ${(props) => (props.isSelected ? 'bold' : '300')};
 	border-bottom: ${(props) =>
 		props.isSelected
