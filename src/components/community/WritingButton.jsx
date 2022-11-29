@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import writing_button from '../../images/writing_button.svg';
 
@@ -7,8 +8,8 @@ const StyledDiv = styled.div`
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	bottom: 8rem;
-	right: 3rem;
+	bottom: 7rem;
+	right: calc(50vw - min(224px, 50vw) + 3rem);
 	width: 4rem;
 	height: 4rem;
 	background-color: #2ad4af;
@@ -23,7 +24,9 @@ const StyledDiv = styled.div`
 export default function WritingButton({}) {
 	return (
 		<StyledDiv>
-			<img src={writing_button} />
+			<Link to={'/postwriting'}>
+				<img src={writing_button} />
+			</Link>
 		</StyledDiv>
 	);
 }
