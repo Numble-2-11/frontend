@@ -10,6 +10,7 @@ export default function NewBoard() {
       <Post />
       <Post />
       <Post />
+      <Post />
     </>
   );
 }

@@ -1,5 +1,16 @@
 import React from "react";
+import Post from "./Post";
+import Location from "./Location";
 
 export default function EventBoard() {
-  return <div>EventBoard</div>;
+  return (
+    <>
+      <Location />
+      <Post />
+      <Post />
+      <Post />
+      <Post />
+      <Post />
+    </>
+  );
 }
