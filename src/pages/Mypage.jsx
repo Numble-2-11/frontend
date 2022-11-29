@@ -77,4 +77,7 @@ export default function Mypage() {
 const Container = styled.div`
 	display: flex;
 	margin-bottom: 1rem;
+	width: 100vw;
+	max-width: 448px;
+	transform: translateX(-24px);
 `;
