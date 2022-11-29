@@ -58,7 +58,11 @@ export default function Address() {
 				<Postcode
 					autoClose={false}
 					onComplete={selectAddress}
-					style={{ width: '100%', height: '35rem' }}
+					style={{
+						width: '100%',
+						height: '38rem',
+						transform: 'translateX(calc((min(100vw, 348px) - 348px) / 2))',
+					}}
 				/>
 			)}
 			<Input id="addressInput" onClick={clickButton} value={address} />
