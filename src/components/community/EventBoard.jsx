@@ -1,5 +1,11 @@
-import React from "react";
+import React from 'react';
+import WritingButton from './WritingButton';
 
 export default function EventBoard() {
-  return <div>EventBoard</div>;
+	return (
+		<div>
+			EventBoard
+			<WritingButton />
+		</div>
+	);
 }

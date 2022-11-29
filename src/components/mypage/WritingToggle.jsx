@@ -28,7 +28,12 @@ export default function WritingToggle({ context }) {
 						style={{ cursor: 'pointer' }}
 					/>
 				) : (
-					<img src={arrow_down} alt="arrow_down" onClick={handleToggle} />
+					<img
+						src={arrow_down}
+						alt="arrow_down"
+						style={{ cursor: 'pointer' }}
+						onClick={handleToggle}
+					/>
 				)}
 			</div>
 			<ul
