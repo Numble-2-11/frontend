@@ -51,11 +51,11 @@ export default function CompletePage() {
 				})
 				.then((res) => {
 					console.log(res);
-					navigate('/main');
+					navigate('/');
 				})
 				.catch((err) => {
 					console.log(err);
-					navigate('/main'); // 임시로 메인으로 가게 만듦
+					navigate('/'); // 임시로 메인으로 가게 만듦
 				});
 		}
 	};
